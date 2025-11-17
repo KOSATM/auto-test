@@ -13,9 +13,12 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            const branch = context.payload.pull_request.head.ref;
-            const menu = branch.split('/')[0];
-
+            // 1. PR, 브랜치, 메뉴, 작성자 정보 가져오기
+            const pr = context.payload.pull_request;
+            const branch = pr.head.ref;          // e.g. planner/feat/date-picker
+            const menu = branch.split('/')[0];   // e.g. "planner"
+            const author = pr.user.login;        // PR 작성자 GitHub ID
+            
             const reviewerPool = {
               planner: ["dlgudwn55", "so0126"],
               travelgram: ["SeungHun-OH","drop0utboy"],
