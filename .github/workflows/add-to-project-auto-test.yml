@@ -16,7 +16,7 @@ jobs:
           github-token: ${{ secrets.PERSONAL_TOKEN }}
           script: |
             const org = "KOSATM";
-            const target = "frontend".toLowerCase();
+            const target = "auto-test".toLowerCase();
 
             const query = `
               query($org: String!) {
