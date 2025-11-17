@@ -17,17 +17,24 @@ jobs:
             const menu = branch.split('/')[0];
 
             const reviewerPool = {
-              planner: ["dlgudwn55", "so0126"],
-              travelgram: ["SeungHun-OH","drop0utboy"],
-              mypage: ["miouOu", "so0126"],
-              supporter: ["drop0utboy","sherwinhong"],
-              common: ["miouOu", "sherwinhong", "SeungHun"]
+              planner: ["drop0utboy", "so0126","miouOu"],
+              travelgram: ["SeungHun-OH","sherwinhong","dlgudwn55"],
+              mypage: ["miouOu", "dlgudwn55", "so0126"],
+              supporter: ["SeungHun-OH","sherwinhong","dlgudwn55"],
+              common: ["miouOu", "sherwinhong", "SeungHun-OH", "drop0utboy", "so0126","dlgudwn55"]
             };
 
             const pool = reviewerPool[menu];
             if (!pool) return;
 
-            const shuffled = pool.sort(() => Math.random() - 0.5);
+            // PR 작성자를 reviewerPool에서 제거
+            const filtered = pool.filter(r => r !== author);
+
+            // reviewerPool이 작아서 1명만 남는 경우도 처리
+            if (filtered.length === 0) return;
+
+            // 랜덤 2명 선택
+            const shuffled = filtered.sort(() => Math.random() - 0.5);
             const reviewers = shuffled.slice(0, 2);
 
             await github.rest.pulls.requestReviewers({

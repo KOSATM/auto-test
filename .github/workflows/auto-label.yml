@@ -18,22 +18,22 @@ jobs:
 
             // 메뉴 라벨
             const menuLabels = {
-              planner: "#4373FF",
-              travelgram: "#09B28B",
-              mypage: "#8353E6",
-              supporter: "#E69A53",
-              common: "#444444"
+              planner: "4373FF",
+              travelgram: "09B28B",
+              mypage: "8353E6",
+              supporter: "E69A53",
+              common: "444444"
             };
 
             // 타입 라벨
             const typeLabels = {
-              feat: "#2EB67D",      // feature
-              fix: "#D64545",
-              refactor: "#A371F7",
-              style: "#6F42C1",
-              docs: "#0366D6",
-              test: "#FF8800",
-              chore: "#999999"
+              feat: "2EB67D",      // feature
+              fix: "D64545",
+              refactor: "A371F7",
+              style: "6F42C1",
+              docs: "0366D6",
+              test: "FF8800",
+              chore: "999999"
             };
 
             const needed = [];
